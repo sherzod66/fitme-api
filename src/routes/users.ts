@@ -33,7 +33,7 @@ router.post("/", validate(createUserValidationSchema), controller.create);
 router.get("/:id", validateIdParam, controller.findOne);
 
 router.patch(
-  "update-message-token/:id",
+  "/update-message-token/:id",
   validateIdParam,
   validate(updateUserMessageTokenValidationSchema),
   controller.updateMessageToken
