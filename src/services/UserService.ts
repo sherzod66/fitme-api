@@ -274,6 +274,26 @@ const UserService = {
     return found;
   },
 
+  updateMessageToken: async (req: Request) => {
+    // @ts-ignore
+    let found: IUser = req.user;
+
+    if (req.params.id !== found._id.toString()) {
+      found = await UserService.find({ _id: req.params.id });
+    }
+
+    if (!found) {
+      throw createHttpError(StatusCodes.NOT_FOUND, "User not found");
+    }
+
+    console.log("UpdateMessageToken");
+
+    found.messageToken = req.body.messageToken;
+    await UserModel.findByIdAndUpdate(req.params.id, found);
+
+    return found;
+  },
+
   updateNumber: async (req: Request) => {
     // @ts-ignore
     let found: IUser = req.user;

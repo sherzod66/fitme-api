@@ -11,6 +11,9 @@ export const updateUserNameValidationSchema = yup.object({
   name: yup.string().required(),
 });
 
+export const updateUserMessageTokenValidationSchema = yup.object({
+  messageToken: yup.string().required(),
+});
 export const updateUserPhoneNumberValidationSchema = yup.object({
   phoneNumber: yup.string().required(),
 });

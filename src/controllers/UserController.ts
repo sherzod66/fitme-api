@@ -68,6 +68,20 @@ export class UserController {
     }
   }
 
+  public async updateMessageToken(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) {
+    try {
+      const updated = await UserService.updateMessageToken(req);
+
+      res.status(StatusCodes.OK).json(changeResponse(true, updated));
+    } catch (e) {
+      next(e);
+    }
+  }
+
   public async updateNumber(req: Request, res: Response, next: NextFunction) {
     try {
       const updated = await UserService.updateNumber(req);

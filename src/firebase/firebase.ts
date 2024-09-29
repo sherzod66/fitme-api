@@ -1,5 +1,5 @@
 import admin from "firebase-admin";
-import * as serviceAccount from "./fit-me-f0215-firebase-adminsdk-4tc0r-63c0cca9ba.json"; // Укажи путь к своему JSON-файлу с ключами
+import * as serviceAccount from "./fit-me-f0215-firebase-adminsdk-4tc0r-c91e00869a.json"; // Укажи путь к своему JSON-файлу с ключами
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount as admin.ServiceAccount),

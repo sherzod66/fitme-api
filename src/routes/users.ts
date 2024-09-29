@@ -17,6 +17,7 @@ import {
   setWorkoutResultValidationSchema,
   roleValidationSchema,
   addPlanByStudentSchema,
+  updateUserMessageTokenValidationSchema,
 } from "./../validation/schemas/user";
 
 const router = Router();
@@ -30,6 +31,13 @@ router.get("/", controller.find);
 router.post("/", validate(createUserValidationSchema), controller.create);
 
 router.get("/:id", validateIdParam, controller.findOne);
+
+router.patch(
+  "update-message-token/:id",
+  validateIdParam,
+  validate(updateUserMessageTokenValidationSchema),
+  controller.updateMessageToken
+);
 
 router.put(
   "/update-name/:id",
